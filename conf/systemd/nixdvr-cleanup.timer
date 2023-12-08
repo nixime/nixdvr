@@ -1,0 +1,14 @@
+#
+# Copyright 2022 NIXIME@GITHUB
+#
+[Unit]
+Description=Cleans up old files
+Requires=nixdvr-cleanup.service
+
+[Timer]
+Unit=nixdvr-cleanup.service
+OnCalendar=Monday,Saturday *-*-* 4:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

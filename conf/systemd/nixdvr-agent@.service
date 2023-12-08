@@ -1,0 +1,22 @@
+#
+# Copyright 2022 NIXIME@GITHUB
+#
+[Unit]
+Description=FFMPEG stream recorder
+DefaultDependencies=no
+Conflicts=shutdown.target
+Before=shutdown.target
+Requires=mdmonitor.service local-fs.target
+After=network-online.target mdmonitor.service local-fs.target
+Wants=network-online.target systemd-networkd-wait-online.service
+StartLimitIntervalSec=3000
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/nixdvr_record --name %I --config /etc/nixdvr.cfg
+StandardInput=tty-force
+Restart=always
+RestartSec=30s
+
+[Install]
+WantedBy=multi-user.target

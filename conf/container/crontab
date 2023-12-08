@@ -1,0 +1,13 @@
+#* * * * *  *
+#| | | | |  +-- Binary
+#| | | | +---- Day of the Week   (range: 0-6, 0 standing for Sunday)
+#| | | +------ Month of the Year (range: 1-12)
+#| | +-------- Day of the Month  (range: 1-31)
+#| +---------- Hour              (range: 0-23)
+#+------------ Minute            (range: 0-59)
+
+# Cleanup Timer
+00 04 * * mon,sat   /usr/local/bin/nixdvr_cleanup
+
+# Merge Timer to run everyday
+00 01 * * *   /usr/local/bin/nixdvr_merge

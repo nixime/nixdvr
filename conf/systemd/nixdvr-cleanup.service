@@ -1,0 +1,13 @@
+#
+# Copyright 2022 NIXIME@GITHUB
+#
+[Unit]
+Description=Cleans up old files
+Wants=nixdvr-cleanup.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/nixdvr_cleanup
+
+[Install]
+WantedBy=multi-user.target

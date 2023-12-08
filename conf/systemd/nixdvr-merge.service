@@ -1,0 +1,13 @@
+#
+# Copyright 2022 NIXIME@GITHUB
+#
+[Unit]
+Description=Merges partial day files into single full day file
+Wants=nixdvr-merge.timer
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/nixdvr_merge
+
+[Install]
+WantedBy=multi-user.target

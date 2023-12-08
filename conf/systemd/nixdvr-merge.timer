@@ -1,0 +1,14 @@
+#
+# Copyright 2022 NIXIME@GITHUB
+#
+[Unit]
+Description=Merges partial day files into single full day file
+Requires=nixdvr-merge.service
+
+[Timer]
+Unit=nixdvr-merge.service
+OnCalendar=Tuesday,Friday *-*-* 4:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
