@@ -32,7 +32,6 @@ def relocate_merged_files(recycle_folder_path, config_file):
                 print(f'Bad Line |{l}')
 
         f.close()
-    return
 
 
 def merge_mkv_files(wipfolder, day, config_file):
@@ -67,6 +66,8 @@ def merge_mkv_files(wipfolder, day, config_file):
 def process_single_day(wipfolder, day):
     print(f'Starting Single Day Process {day}')
     mkvfiles = [f for f in listdir(wipfolder) if isfile(join(wipfolder, f)) and f.startswith(day)]
+    mkvfiles.sort()
+
     fd, path = tempfile.mkstemp()
     try:
         with os.fdopen(fd, 'w') as tfp:
@@ -96,7 +97,7 @@ def process_full_wip_folder(wipfolder):
         day_filter=tokens[0]
         # Only process the day once, even if multiple files
         # exist in the original list.
-        if not day_filter in processed:
+        if day_filter not in processed:
             processed.append(day_filter)
             process_single_day(wipfolder, day_filter)
 

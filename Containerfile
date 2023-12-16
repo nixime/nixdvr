@@ -25,7 +25,7 @@ RUN mkdir -p /media
 COPY conf/container/nixdvr.cfg /etc/nixdvr.cfg
 COPY conf/container/camera.cfg /etc/nixdvr.d/camera.cfg
 ## application files
-COPY src/nixdvr_merge.sh /usr/local/bin/nixdvr_merge
+COPY src/nixdvr_merge.py /usr/local/bin/nixdvr_merge
 COPY src/nixdvr_record.sh /usr/local/bin/nixdvr_record
 COPY src/nixdvr_cleanup.sh /usr/local/bin/nixdvr_cleanup
 COPY src/container/run.sh /usr/local/bin/run.sh
